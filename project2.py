@@ -14,7 +14,7 @@ import time
 # 存储到scraping.screening
 def store(title, rate, star, duration, region, director, actors):
     cur.execute('INSERT INTO screening (title, rate, star, duration, region, director, actors) \
-    VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\")' % (title, rate, star, duration, region, director, actors))
+    VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\");' % (title, rate, star, duration, region, director, actors))
     # 提交数据，不然无法保存修改的数据
     cur.connection.commit()
 
@@ -35,7 +35,7 @@ def get_screeninglist(url):
 
 if __name__ == '__main__':
     # 创建连接对象conn和光标对象cur
-    conn = pymysql.connect(host='127.0.0.1', user='root', password='LA168167Nc@mysql', db='mysql', charset='utf8')
+    conn = pymysql.connect(host='127.0.0.1', user='root', password='你的MySQLpassword', db='mysql', charset='utf8')
     cur = conn.cursor()
     # 创建数据库scraping
     cur.execute('CREATE DATABASE scraping;')
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     # 模拟登陆豆瓣
     # 登录信息
-    params = {'form_email': '15614631682', 'form_password': 'LA168170Nc'}
+    params = {'form_email': '你的用户名/邮箱/手机号', 'form_password': '你的豆瓣password'}
     # 用fiddler抓取的浏览器请求头
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'}
