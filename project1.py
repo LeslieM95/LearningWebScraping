@@ -94,7 +94,7 @@ if __name__ == '__main__':
                         per_row.append(tagstr.strip('/'))
                         # append摘要
                         # per_row.append(cells[5].get_text())
-                    # 把书的信息按航写入csvFile
+                    # 把书的信息按行写入csvFile
                     writer.writerow(per_row)
                     # 当count>=100时，跳出"for row in rows:"循环
                     if count >= 100:
