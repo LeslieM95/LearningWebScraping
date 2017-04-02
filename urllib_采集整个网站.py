@@ -30,10 +30,10 @@ def get_links(articleURL):
         if link.attrs['href'] not in article_links:
             new_articleURL = link.attrs['href']
             print('-'*10, new_articleURL, '-'*10)
-            article_links.append(new_articleURL)
+            article_links.append(new_articleURL)  # 或者用article_links.add(......)
             get_links(new_articleURL)  # 这才叫递归！！！
 
 if __name__ == '__main__':
-    article_links = []
+    article_links = []  # 或者用article_links = set()
     linklist = get_links('')
     # ''表示从'http://en.wikipedia.org'开始
